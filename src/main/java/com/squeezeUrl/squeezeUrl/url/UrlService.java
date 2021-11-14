@@ -57,4 +57,21 @@ public class UrlService {
         }
         return encodedUrl.reverse().toString();
     }
+
+    public String getUrl(String requestUrl){
+        Optional<Url> optionalProduct = null;
+        String shortUrl="";
+        try{
+            optionalProduct = urlRepository.getUrlByUrl(requestUrl);
+            shortUrl = optionalProduct.get().getShort_url();
+            return shortUrl;
+        }catch (NoSuchElementException e){
+            System.out.println(id);
+            shortUrl = "https://www.shorturl.com/"+encodeUrl(id++);
+            Url url = new Url(requestUrl,shortUrl);
+            System.out.println(url);
+            urlRepository.save(url);
+            return shortUrl;
+        }
+    }
 }

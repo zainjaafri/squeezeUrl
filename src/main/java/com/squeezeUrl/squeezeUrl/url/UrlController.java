@@ -15,6 +15,11 @@ public class UrlController {
         this.urlService = urlService;
     }
 
+    @GetMapping(path = "/squeezeUrl/{requestUrl}")
+    public String getUrl(@PathVariable("requestUrl") String requestUrl){
+        return urlService.getUrl(requestUrl);
+    }
+
     @GetMapping(path = "/{requestUrl}")
     public RedirectView userUrl(@PathVariable("requestUrl") String requestUrl){
         return urlService.userUrl(requestUrl);
