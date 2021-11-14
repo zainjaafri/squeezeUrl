@@ -1,0 +1,15 @@
+<h1 style="text-align: center;padding-bottom: 1%;">
+  {{title}}
+</h1>
+
+<div style="text-align: center;">
+  <form [formGroup]="squeezeUrl" (ngSubmit)="onSubmit()">
+
+    <div style="padding-bottom: 2%;">
+      <label style="padding-right: 5%;">Enter URL to squeeze</label> <input style="width: 50%;">
+    </div>
+    
+    <button type="submit">SUBMIT</button>
+  </form>
+  
+</div>
